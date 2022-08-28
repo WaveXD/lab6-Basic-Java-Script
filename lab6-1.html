@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Basic Java Script</title>
+    <script>
+        let year = 2564;
+        let check;
+        let i;
+        let student = [
+            {
+                fullname: 'นายตั้งใจ เรียนมาก',
+                age: 18,
+                year: 1,
+                gpa: 3.40,
+                help: true
+            },
+            {
+                fullname: 'นายส่งงาน ตลอดมา',
+                age: 19,
+                year: 2,
+                gpa: 3.00,
+                help: false
+            },
+            {
+                fullname: 'นางสาวใส่ใจ ดีงาม',
+                age: 20,
+                year: 3,
+                gpa: 2.90,
+                help: true
+            }
+        ]
+        for (i = 0; i < student.length; i++) {
+            if (student[i].gpa >= 3.20 && student[i].help == true) {
+                console.log(student[i].fullname, "เกิดเมื่อปี", year - student[i].age, "ได้ทุนการศึกษา เนื่องจากเกรดเฉลี่ยถึงเกณฑ์และยังช่วยงานภาควิชาด้วย");
+            }
+            else if (student[i].gpa >= 3.20 && student[i].help == false) {
+                console.log(student[i].fullname, "เกิดเมื่อปี", year - student[i].age, "ได้ทุนการศึกษา เนื่องจากเกรดเฉลี่ยถึงเกณฑ์ และยังไม่ได้ช่วยงานภาควิชาด้วย");
+            }
+            else if (student[i].help == true && student[i].gpa >= 2.75 && student[i].year > 2) {
+                console.log(student[i].fullname, "เกิดเมื่อปี", year - student[i].age, "ได้ทุนการศึกษา เนื่องจากเกรดเฉลี่ยถึงเกณฑ์และยังช่วยงานภาควิชาด้วย");
+            }
+            else if (student[i].help == false && student[i].gpa >= 2.75 && student[i].year > 2) {
+                console.log(student[i].fullname, "เกิดเมื่อปี", year - student[i].age, "ไม่ได้ทุนการศึกษา เนื่องจากเกรดเฉลี่ยถึงเกณฑ์ และยังไม่ได้ช่วยงานภาควิชาด้วย");
+            }
+            else if (student[i].gpa <= 2.75 && student[i].help == false) {
+                console.log(student[i].fullname, "เกิดเมื่อปี", year - student[i].age, "ไม่ได้ทุนการศึกษา เนื่องจากเกรดไม่เฉลี่ยถึงเกณฑ์ และยังไม่ได้ช่วยงานภาควิชาด้วย");
+            }
+            else if (student[i].gpa <= 2.75 && student[i].help == true) {
+                console.log(student[i].fullname, "เกิดเมื่อปี", year - student[i].age, "ไม่ได้ทุนการศึกษา เนื่องจากเกรดไม่เฉลี่ยถึงเกณฑ์ และยังช่วยงานภาควิชาด้วย");
+            }
+            else if (student[i].help == false && student[i].gpa >= 2.75) {
+                console.log(student[i].fullname, "เกิดเมื่อปี", year - student[i].age, "ไม่ได้ทุนการศึกษา เนื่องจากเกรดเฉลี่ยถึงเกณฑ์ และยังไม่ได้ช่วยงานภาควิชาด้วย");
+            }
+            else if (student[i].help == true && student[i].gpa >= 2.75) {
+                console.log(student[i].fullname, "เกิดเมื่อปี", year - student[i].age, "ไม่ได้ทุนการศึกษา เนื่องจากเกรดเฉลี่ยถึงเกณฑ์ และยังช่วยงานภาควิชาด้วย");
+            }
+        }
+        student.sort((a, b) => {
+            return a.year - b.year
+        });
+        for (i = 0; i < student.length; i++) {
+            if (student[i].year != check) {
+                console.log("ชั้นปีที่", student[i].year)
+                check = student[i].year
+            }
+            if ((student[i].gpa >= 2.75 && student[i].help === true) && student[i].year > 2) {
+                console.log(student[i].fullname, "เนื่องจากเกรดเฉลี่ยถึงเกณฑ์และยังได้ช่วยงานภาควิชาด้วย");
+            }
+            else if (student[i].gpa >= 3.2) {
+                console.log(student[i].fullname, "เนื่องจากเกรดเฉลี่ยถึงเกณฑ์และยังได้ช่วยงานภาควิชาด้วย")
+            }
+            else {
+                console.log("ไม่มี")
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
